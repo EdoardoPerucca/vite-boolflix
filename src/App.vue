@@ -1,6 +1,7 @@
 <script>
 
 import { store } from "./store.js";
+import axios from "axios";
 
 import MainSection from './components/MainSection.vue';
 import HeaderSection from './components/HeaderSection.vue';
@@ -18,7 +19,30 @@ export default {
     HeaderSection,
   },
 
+  created() {
+    axios.get(this.APIbase + this.store.path + this.store.APIKey + this.store.query).then(res => {
+      console.log(res.data.results);
 
+      this.store.movies = res.data.results;
+    });
+  },
+
+
+  methods: {
+    searchMovie() {
+      this.store.path = "/search/movie";
+      console.log(this.store.path),
+
+        this.store.query = "&query=" + encodeURIComponent(this.store.userSearch);
+      console.log(this.store.query),
+
+
+        axios.get(this.APIbase + this.store.path + this.store.APIKey + this.store.query).then((res) => {
+          console.log(res)
+          this.store.movies = res.data.results;
+        });
+    }
+  }
 
 }
 </script>
@@ -26,7 +50,7 @@ export default {
 <template>
   <div id="app-container">
 
-    <HeaderSection></HeaderSection>
+    <HeaderSection @searchUserMovie="searchMovie()"></HeaderSection>
 
     <MainSection></MainSection>
 
@@ -38,6 +62,7 @@ export default {
   width: 100vw;
   height: 100vh;
   padding: 20px;
+  overflow-y: auto;
 
   background-color: black;
 

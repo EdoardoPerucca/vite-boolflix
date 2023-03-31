@@ -17,6 +17,8 @@ export default {
 
     },
 
+    emits: ['searchUserMovie'],
+
 }
 </script>
 
@@ -42,7 +44,9 @@ export default {
         </div>
 
         <div id="header-right">
-            icon
+            <input v-model="store.userSearch" type="text" placeholder="Cerca un film"
+                @keyup.enter="$emit('searchUserMovie')">
+            <button @click="$emit('searchUserMovie')">Cerca</button>
         </div>
     </div>
 </template>

@@ -1,10 +1,13 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-    // proprietà che vogliamo rendere disponibili per tutta la nostra app
 
-    // questa proprietà conterrà le carte in risposta dalla nostra chiamata api
+    APIbase: "https://api.themoviedb.org/3",
+    APIKey: "?api_key=af1e5ae9135296ef4299e882993b2f76",
+    path: '',
+    query: '',
 
-    rings: [],
+    movies: [],
 
+    userSearch: '',
 });
