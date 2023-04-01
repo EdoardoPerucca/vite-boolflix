@@ -56,9 +56,14 @@ export default {
     flex-direction: column;
     width: 200px;
     height: 250px;
-    margin-bottom: 10em;
+    margin-bottom: 5em;
     font-size: .7em;
-    color: white;
+    overflow-y: hidden;
+
+    :hover {
+        cursor: pointer;
+        opacity: 50%;
+    }
 
     .card-img {
         width: 100%;
