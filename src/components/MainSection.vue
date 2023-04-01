@@ -3,6 +3,7 @@
 import { store } from "../store.js";
 
 import CardItem from './CardItem.vue';
+import CardTvSeries from "./CardTvSeries.vue";
 import '@fortawesome/fontawesome-free/css/all.css';
 
 export default {
@@ -18,6 +19,7 @@ export default {
 
     components: {
         CardItem,
+        CardTvSeries,
     },
 
 
@@ -25,18 +27,31 @@ export default {
 </script>
 
 <template>
-    <div id="main-container">
+    <h2>Film</h2>
 
+    <div class="main-container-poster">
         <CardItem v-for="movie in store.movies" :movieObject="movie"></CardItem>
+    </div>
 
+    <h2>Serie TV</h2>
+
+    <div class="main-container-poster">
+        <CardTvSeries v-for="tv in store.tvSeries" :tvObject="tv"></CardTvSeries>
     </div>
 </template>
 
 <style scoped lang="scss">
-#main-container {
+h2 {
+    color: white;
+    padding-bottom: 1em;
+}
+
+.main-container-poster {
     display: flex;
     flex-flow: row wrap;
-    gap: 2em;
+    justify-content: center;
+    width: 100%;
+    gap: 1em;
     color: white;
 
 

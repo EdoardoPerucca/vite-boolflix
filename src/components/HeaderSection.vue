@@ -25,7 +25,7 @@ export default {
 <template>
     <div id="header-container">
         <div id="header-left">
-            LOGO
+            <img src="../img/Netflix-logo.png" alt="logo">
         </div>
 
         <div id="header-center">
@@ -56,8 +56,7 @@ export default {
     display: flex;
     gap: 20px;
     width: 100%;
-    height: 100px;
-    background-color: black;
+    height: 80px;
     color: white;
 
     #header-center {
@@ -75,6 +74,29 @@ export default {
         }
 
     }
+
+    ;
+
+    #header-right {
+        display: flex;
+        align-items: flex-start;
+        gap: .5em;
+
+        input {
+            padding: .3em;
+            border-radius: 25px;
+            background-color: lightgrey;
+            border: none;
+        }
+
+        button {
+            padding: .3em .8em;
+            border-radius: 10px;
+            background-color: lightblue;
+            border: none;
+        }
+    }
+
 
 }
 </style>

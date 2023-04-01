@@ -20,26 +20,42 @@ export default {
   },
 
   created() {
-    axios.get(this.APIbase + this.store.path + this.store.APIKey + this.store.query).then(res => {
+
+    axios.get('https://api.themoviedb.org/3/search/movie?api_key=af1e5ae9135296ef4299e882993b2f76&query=popular&append_to_response=videos').then(res => {
       console.log(res.data.results);
 
       this.store.movies = res.data.results;
+
+
     });
+
+
+    axios.get('https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs').then(res => {
+      console.log(res.data.results);
+
+      this.store.tvSeries = res.data.results;
+
+
+    });
+
+
   },
 
 
   methods: {
     searchMovie() {
       this.store.path = "/search/movie";
+      this.store.path = "/search/tv";
       console.log(this.store.path),
 
         this.store.query = "&query=" + encodeURIComponent(this.store.userSearch);
       console.log(this.store.query),
 
 
-        axios.get(this.APIbase + this.store.path + this.store.APIKey + this.store.query).then((res) => {
+        axios.get(this.store.APIbase + this.store.path + this.store.APIKey + this.store.query).then((res) => {
           console.log(res)
           this.store.movies = res.data.results;
+          this.store.tvSeries = res.data.results;
         });
     }
   }
@@ -63,6 +79,7 @@ export default {
   height: 100vh;
   padding: 20px;
   overflow-y: auto;
+  overflow-x: hidden;
 
   background-color: black;
 

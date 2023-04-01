@@ -3,7 +3,7 @@ import { store } from "../store.js";
 
 export default {
 
-    name: 'CardItem',
+    name: 'CardTvSeries',
 
     data() {
         return {
@@ -12,15 +12,15 @@ export default {
     },
 
     props: {
-        movieObject: Object,
+        tvObject: Object,
     },
 
     components: {
     },
 
     computed: {
-        posterView() {
-            return 'https://image.tmdb.org/t/p/w500' + this.movieObject.poster_path;
+        posterViewSeries() {
+            return 'https://image.tmdb.org/t/p/w500' + this.tvObject.poster_path;
         }
     }
 
@@ -32,17 +32,17 @@ export default {
     <div class="single-card">
 
         <div class="card-img">
-            <img :src="posterView" alt="">
+            <img :src="posterViewSeries" alt="">
         </div>
 
         <div id="card-text">
-            Titolo: {{ movieObject.title }}
+            Titolo: {{ tvObject.name }}
             <br>
-            Titolo originale: {{ movieObject.original_title }}
+            Titolo originale: {{ tvObject.original_name }}
             <br>
-            Lingua: {{ movieObject.original_language }}
+            Lingua: {{ tvObject.original_language }}
             <br>
-            Voto: {{ movieObject.vote_average }}
+            Voto: {{ tvObject.vote_average }}
         </div>
 
     </div>
@@ -56,8 +56,7 @@ export default {
     height: 250px;
     margin-bottom: 10em;
     font-size: .7em;
-    overflow-y: hidden;
-    border: 1px solid red;
+    color: white;
 
     .card-img {
         width: 100%;
@@ -69,7 +68,6 @@ export default {
             height: 100%;
             object-fit: cover;
             background-position: bottom;
-            display: none;
         }
     }
 }
