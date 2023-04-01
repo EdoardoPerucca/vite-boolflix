@@ -21,8 +21,11 @@ export default {
     computed: {
         posterView() {
             return 'https://image.tmdb.org/t/p/w500' + this.movieObject.poster_path;
-        }
-    }
+        },
+
+
+    },
+
 
 
 }
@@ -54,10 +57,14 @@ export default {
     flex-direction: column;
     width: 200px;
     height: 250px;
-    margin-bottom: 10em;
+    margin-bottom: 5em;
     font-size: .7em;
     overflow-y: hidden;
-    border: 1px solid red;
+
+    :hover {
+        cursor: pointer;
+        opacity: 50%;
+    }
 
     .card-img {
         width: 100%;
@@ -69,7 +76,6 @@ export default {
             height: 100%;
             object-fit: cover;
             background-position: bottom;
-            display: none;
         }
     }
 }

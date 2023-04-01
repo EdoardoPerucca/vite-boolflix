@@ -7,9 +7,17 @@ export const store = reactive({
     path: '',
     query: '',
 
+
+
+    flagBase: 'https://www.countryflagicons.com/FLAT/64/',
+    flagCountryCode: '',
+    flagImageFormat: '.png',
+
+
     movies: [],
     tvSeries: [],
 
     userSearch: '',
+
 
 });

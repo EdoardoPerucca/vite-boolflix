@@ -44,6 +44,8 @@ export default {
 h2 {
     color: white;
     padding-bottom: 1em;
+    padding-left: 1em;
+    font-size: 2em;
 }
 
 .main-container-poster {

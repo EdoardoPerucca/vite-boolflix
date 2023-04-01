@@ -33,11 +33,8 @@ export default {
                 <ul>
                     <li>
                         <a href="#">home</a>
-                        <a href="#">home</a>
-                        <a href="#">home</a>
-                        <a href="#">home</a>
-                        <a href="#">home</a>
-                        <a href="#">home</a>
+                        <a href="#">film</a>
+                        <a href="#">serie TV</a>
                     </li>
                 </ul>
             </div>
@@ -70,6 +67,8 @@ export default {
             a {
                 text-decoration: none;
                 color: white;
+                text-transform: uppercase;
+                font-weight: bold
             }
         }
 
