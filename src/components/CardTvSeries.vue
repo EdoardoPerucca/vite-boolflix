@@ -1,6 +1,8 @@
 <script>
 import { store } from "../store.js";
 
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+
 export default {
 
     name: 'CardTvSeries',
@@ -21,7 +23,27 @@ export default {
     computed: {
         posterViewSeries() {
             return 'https://image.tmdb.org/t/p/w500' + this.tvObject.poster_path;
-        }
+        },
+
+        flagLanguage() {
+            switch (this.tvObject.original_language) {
+                case "en":
+                    return "gb";
+                    break;
+
+                case "ja":
+                    return "jp";
+                    break;
+
+                case "zh":
+                    return "cn";
+                    break;
+
+                default:
+                    return this.tvObject.original_language;
+                    break;
+            };
+        },
     }
 
 
@@ -38,13 +60,15 @@ export default {
         </div>
 
         <div id="card-text">
-            Titolo: {{ tvObject.name }}
+            <strong>Titolo:</strong> {{ tvObject.name }}
             <br>
-            Titolo originale: {{ tvObject.original_name }}
+            <strong>Titolo originale:</strong> {{ tvObject.original_name }}
             <br>
-            Lingua: {{ tvObject.original_language }}
+            <span :class="'fi fi-' + flagLanguage"></span>
             <br>
-            Voto: {{ tvObject.vote_average }}
+            <strong>Voto:</strong> {{ tvObject.vote_average }}
+            <br>
+            <strong>Overview:</strong> {{ tvObject.overview }}
         </div>
 
     </div>
@@ -59,22 +83,45 @@ export default {
     margin-bottom: 5em;
     font-size: .7em;
     overflow-y: hidden;
+    flex-shrink: 0;
+    position: relative;
+
 
     :hover {
         cursor: pointer;
-        opacity: 50%;
+        border: 1px solid darkgrey;
+
+        img {
+            display: none;
+        }
     }
 
     .card-img {
         width: 100%;
         height: 100%;
         margin-bottom: 1em;
+        z-index: 2;
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             background-position: bottom;
+
+        }
+    }
+
+    ;
+
+    #card-text {
+        height: 100%;
+        position: absolute;
+        left: 1em;
+        top: 1em;
+
+
+        strong {
+            color: orangered;
         }
     }
 }

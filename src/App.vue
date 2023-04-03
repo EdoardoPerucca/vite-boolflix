@@ -6,6 +6,7 @@ import axios from "axios";
 import MainSection from './components/MainSection.vue';
 import HeaderSection from './components/HeaderSection.vue';
 import '@fortawesome/fontawesome-free/css/all.css';
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export default {
   data() {
@@ -30,7 +31,7 @@ export default {
     });
 
 
-    axios.get('https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs').then(res => {
+    axios.get('https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=action').then(res => {
       console.log(res.data.results);
 
       this.store.tvSeries = res.data.results;
@@ -43,9 +44,15 @@ export default {
 
 
   methods: {
+
+    searchInput() {
+      this.searchMovie(),
+        this.searchTv();
+    },
+
+
     searchMovie() {
       this.store.path = "/search/movie";
-      this.store.path = "/search/tv";
       console.log(this.store.path),
 
         this.store.query = "&query=" + encodeURIComponent(this.store.userSearch);
@@ -55,9 +62,22 @@ export default {
         axios.get(this.store.APIbase + this.store.path + this.store.APIKey + this.store.query).then((res) => {
           console.log(res)
           this.store.movies = res.data.results;
+        });
+    },
+
+    searchTv() {
+      this.store.path = "/search/tv";
+      console.log(this.store.path),
+
+        this.store.query = "&query=" + encodeURIComponent(this.store.userSearch);
+      console.log(this.store.query),
+
+
+        axios.get(this.store.APIbase + this.store.path + this.store.APIKey + this.store.query).then((res) => {
+          console.log(res)
           this.store.tvSeries = res.data.results;
         });
-    }
+    },
   }
 
 }
@@ -66,7 +86,7 @@ export default {
 <template>
   <div id="app-container">
 
-    <HeaderSection @searchUserMovie="searchMovie()"></HeaderSection>
+    <HeaderSection @searchUserMovie="searchInput()"></HeaderSection>
 
     <MainSection></MainSection>
 
@@ -81,7 +101,7 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
 
-  background-color: #101010;
+  background-color: black;
 
 }
 </style>

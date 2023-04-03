@@ -25,7 +25,7 @@ export default {
 <template>
     <div id="header-container">
         <div id="header-left">
-            <img src="../img/Netflix-logo.png" alt="logo">
+            <img src="../assets/Netflix-Logo.png" alt="logo">
         </div>
 
         <div id="header-center">
@@ -51,10 +51,17 @@ export default {
 <style scoped lang="scss">
 #header-container {
     display: flex;
+    align-items: center;
     gap: 20px;
     width: 100%;
-    height: 80px;
+    margin-bottom: 2em;
     color: white;
+
+    #header-left {
+        img {
+            width: 6em;
+        }
+    }
 
     #header-center {
         display: flex;

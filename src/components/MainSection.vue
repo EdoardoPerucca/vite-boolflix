@@ -50,12 +50,11 @@ h2 {
 
 .main-container-poster {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     justify-content: center;
-    width: 100%;
     gap: 1em;
     color: white;
-
+    overflow-x: auto;
 
 }
 </style>
