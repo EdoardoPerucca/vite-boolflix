@@ -56,7 +56,6 @@ export default {
     align-items: center;
     gap: 20px;
     width: 100%;
-    margin-bottom: 2em;
     color: white;
 
     #header-left {

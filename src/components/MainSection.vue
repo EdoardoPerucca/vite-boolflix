@@ -46,19 +46,17 @@ export default {
 h2 {
     color: white;
     padding-bottom: .5em;
-    padding-top: .5em;
+    padding-top: 1em;
     font-size: 1.5em;
 }
 
 .main-container-poster {
     display: flex;
     flex-flow: row;
-    justify-content: center;
     gap: 1em;
     color: white;
     overflow-x: auto;
     position: relative;
-
 
 }
 </style>
