@@ -90,11 +90,11 @@ export default {
     overflow-y: hidden;
     flex-shrink: 0;
     position: relative;
+    border: 1px solid darkgrey;
 
 
     :hover {
         cursor: pointer;
-        border: 1px solid darkgrey;
 
         img {
             display: none;

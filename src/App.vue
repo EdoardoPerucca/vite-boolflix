@@ -48,7 +48,10 @@ export default {
     searchInput() {
       this.searchMovie(),
         this.searchTv();
+
     },
+
+
 
 
     searchMovie() {
@@ -63,6 +66,7 @@ export default {
           console.log(res)
           this.store.movies = res.data.results;
         });
+
     },
 
     searchTv() {
@@ -99,6 +103,7 @@ export default {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  padding: 20px;
 
   background-color: black;
 

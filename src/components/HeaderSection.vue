@@ -19,13 +19,17 @@ export default {
 
     emits: ['searchUserMovie'],
 
+
 }
+
+
+
 </script>
 
 <template>
     <div id="header-container">
         <div id="header-left">
-            <img src="../assets/Netflix-Logo.png" alt="logo">
+            <img src="../../public/Netflix-Logo.png" alt="logo">
         </div>
 
         <div id="header-center">
@@ -33,8 +37,6 @@ export default {
                 <ul>
                     <li>
                         <a href="#">home</a>
-                        <a href="#">film</a>
-                        <a href="#">serie TV</a>
                     </li>
                 </ul>
             </div>

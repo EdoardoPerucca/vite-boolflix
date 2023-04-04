@@ -64,7 +64,6 @@ export default {
         <div class="card-img">
             <img :src="posterView" alt="">
         </div>
-
         <div id="card-text">
             <strong>Titolo:</strong> {{ movieObject.name }}
             <br>
@@ -77,6 +76,7 @@ export default {
             <br>
             <strong>Overview:</strong> {{ movieObject.overview }}
         </div>
+
 
     </div>
 </template>
@@ -92,11 +92,12 @@ export default {
     overflow-y: hidden;
     flex-shrink: 0;
     position: relative;
+    border: 1px solid darkgrey;
+
 
 
     :hover {
         cursor: pointer;
-        border: 1px solid darkgrey;
 
         img {
             display: none;
