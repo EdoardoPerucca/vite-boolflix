@@ -44,6 +44,10 @@ export default {
                     break;
             };
         },
+
+        ratingStars() {
+            return Math.ceil(this.tvObject.vote_average / 10 * 5)
+        },
     }
 
 
@@ -66,7 +70,8 @@ export default {
             <br>
             <span :class="'fi fi-' + flagLanguage"></span>
             <br>
-            <strong>Voto:</strong> {{ tvObject.vote_average }}
+            <strong>Voto:</strong> <strong>Voto:</strong> <i v-for="number in ratingStars" class="fa-solid fa-star"></i><i
+                v-for="number in 5 - ratingStars" class="fa-regular fa-star"></i>
             <br>
             <strong>Overview:</strong> {{ tvObject.overview }}
         </div>

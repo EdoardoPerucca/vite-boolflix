@@ -97,7 +97,6 @@ export default {
 #app-container {
   width: 100vw;
   height: 100vh;
-  padding: 40px;
   overflow-y: auto;
   overflow-x: hidden;
 

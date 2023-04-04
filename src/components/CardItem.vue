@@ -46,6 +46,10 @@ export default {
             };
         },
 
+        ratingStars() {
+            return Math.ceil(this.movieObject.vote_average / 10 * 5)
+        },
+
 
     },
 
@@ -68,7 +72,8 @@ export default {
             <br>
             <span :class="'fi fi-' + flagLanguage"></span>
             <br>
-            <strong>Voto:</strong> {{ movieObject.vote_average }}
+            <strong>Voto:</strong> <i v-for="number in ratingStars" class="fa-solid fa-star"></i><i
+                v-for="number in 5 - ratingStars" class="fa-regular fa-star"></i>
             <br>
             <strong>Overview:</strong> {{ movieObject.overview }}
         </div>
